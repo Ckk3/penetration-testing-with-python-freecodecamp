@@ -15,6 +15,7 @@ server_socket.bind((hostname, port))
 server_socket.listen(3)
 
 print(f'server running on port {port} and hostname {hostname}')
+print(f'Ip adress is {socket.gethostbyname(hostname)}')
 while True:
     client_socket, address = server_socket.accept()
     print(f'Connection sucessul from {address}')
