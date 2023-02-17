@@ -2,7 +2,7 @@ import socket
 
 # Create a socket object
 server_socket = socket.socket(
-    socket.AF_INET, 
+    socket.AF_INET,
     socket.SOCK_STREAM
 )
 
@@ -14,11 +14,12 @@ server_socket.bind((hostname, port))
 
 server_socket.listen(3)
 
+print(f'server running on port {port} and hostname {hostname}')
 while True:
     client_socket, address = server_socket.accept()
     print(f'Connection sucessul from {address}')
 
     message = 'Thank you for connection in my server'
-    
+    client_socket.send(message.encode('ascii'))
     # Close connection
     client_socket.close()
