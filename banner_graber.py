@@ -11,9 +11,8 @@ def main():
 def banner_graber(ip_address, port):
     socket_banner = socket.socket()
     socket_banner.connect((ip_address, port))
-    receive = socket_banner.recv(1024)
-
-    print(f'message is {receive.decode("ascii")}')
+    socket_banner.settimeout(10)
+    print(f'banner is {socket_banner.recv(1024)}')
 
 
 if __name__ == '__main__':
